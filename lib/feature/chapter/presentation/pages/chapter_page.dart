@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hadith_bn_test/core/components/components.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
+import 'package:hadith_bn_test/core/utils/extensions.dart';
 import 'package:hadith_bn_test/feature/chapter/presentation/controller/chapter_controller.dart';
 import 'package:hadith_bn_test/feature/chapter/presentation/widgets/chapter_card_list.dart';
 
@@ -11,14 +12,14 @@ class ChapterPage extends GetWidget<ChapterController> {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(
-      builder: (context, orientation){
+      builder: (context, orientation) {
         return Container(
           color: AppColors.primaryColor,
           child: SafeArea(
             child: OrientationBuilder(
-              builder: (context, orientation){
+              builder: (context, orientation) {
                 return Obx(
-                      () => Stack(
+                  () => Stack(
                     children: [
                       Scaffold(
                         backgroundColor: Colors.grey,
@@ -31,10 +32,12 @@ class ChapterPage extends GetWidget<ChapterController> {
                             text: TextSpan(
                                 text: controller.chapterTitle.value,
                                 style: AppTextTheme.text16.copyWith(
-                                    color: AppColors.white, fontWeight: FontWeight.w600),
+                                    color: AppColors.white,
+                                    fontWeight: FontWeight.w600),
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: '\n${controller.chapterSubTitle.value}',
+                                    text:
+                                        '\n${controller.chapterSubTitle.value}',
                                     style: AppTextTheme.text12.copyWith(
                                       color: AppColors.white,
                                     ),
@@ -75,19 +78,35 @@ class ChapterPage extends GetWidget<ChapterController> {
                             children: <Widget>[
                               CoreTextField(
                                 hintText: 'Search y chapter',
+                                focusNode: controller.searchFocus,
                                 textInputAction: TextInputAction.done,
-                                controller: controller.searchFieldEditingController,
+                                controller:
+                                    controller.searchFieldEditingController,
                                 keyboardType: TextInputType.text,
-                                onSubmit: (_) => controller.onSubmitOfSearchFieldButton(),
+                                onTap: () =>
+                                    controller.searchFocus.requestFocus(),
+                                onSubmit: (_) =>
+                                    controller.onSubmitOfSearchFieldButton(),
+                                onChanged: (_) =>
+                                    controller.onChangeOfSearchFieldButton(),
                                 suffixIcon: CoreIconButton(
                                   icon: AppIcons.search,
                                   width: 22,
-                                  onPressed: () => controller.onSubmitOfSearchFieldButton(),
+                                  onPressed: () =>
+                                      controller.onSubmitOfSearchFieldButton(),
                                 ),
                               ),
                               SizedBox(
                                 height: Get.height - 175,
-                                child: const ChapterCardList(),
+                                child: Obx(
+                                  () => controller.chapterList.isNotEmpty
+                                      ? const ChapterCardList()
+                                      : emptyCard(
+                                              width: Get.width -
+                                                  (defaultPadding1 * 2),
+                                              height: 68)
+                                          .paddingOnly(top: 10,bottom: Get.height - 243),
+                                ),
                               ),
                             ],
                           ),
@@ -97,7 +116,8 @@ class ChapterPage extends GetWidget<ChapterController> {
                   ),
                 );
               },
-            ),),
+            ),
+          ),
         );
       },
     );

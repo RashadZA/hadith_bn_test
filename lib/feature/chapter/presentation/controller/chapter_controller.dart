@@ -13,6 +13,7 @@ class ChapterController extends GetxController {
   final TextEditingController searchFieldEditingController = TextEditingController();
   RxList<ChapterModel> chapterList = <ChapterModel>[].obs;
   RxList<ChapterModel> tempChapterList = <ChapterModel>[].obs;
+  FocusNode searchFocus = FocusNode();
   @override
   void onInit() {
     init();
@@ -33,15 +34,21 @@ class ChapterController extends GetxController {
     chapterBookID.value = Get.parameters[bookId] ?? "";
     update();
   }
-  Future<void> onSubmitOfSearchFieldButton() async {
+  Future<void> onChangeOfSearchFieldButton() async {
     tempChapterList.clear();
     for (var element in chapterList) {
       if(element.title.contains(searchFieldEditingController.value.text)){
         tempChapterList.add(element);
       }
     }
-    chapterList.clear();
-    chapterList.addAll(tempChapterList);
+    if(tempChapterList.isNotEmpty){
+      chapterList.clear();
+      chapterList.addAll(tempChapterList);
+    }
+    update();
+  }
+  Future<void> onSubmitOfSearchFieldButton() async {
+    onChangeOfSearchFieldButton();
     searchFieldEditingController.clear();
     update();
   }
