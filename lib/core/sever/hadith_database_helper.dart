@@ -7,7 +7,6 @@ import 'dart:io' as io;
 
 
 class HadithDataBaseHelper {
-  Database? _db;
 
   Future<Database> init() async {
     io.Directory applicationDirectory =

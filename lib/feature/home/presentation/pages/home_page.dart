@@ -21,7 +21,7 @@ class HomePage extends GetWidget<HomeController> {
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 20),
-            child: Icon(Icons.search),
+            child: const Icon(Icons.search),
           )
         ],
       ),
@@ -95,63 +95,6 @@ class HomePage extends GetWidget<HomeController> {
                         const SizedBox(
                           height: 30,
                         ),
-                        // const HadithBookCard(
-                        //   hadithBookTitle: "Sahih Mus",
-                        //   hadithBookSubTitle: "Sahih Muslim",
-                        //   hadithBookTotalHadith: "7563",
-                        //   hadithBookABVRCode: 'B',
-                        //   hadithBookColor: Colors.green,
-                        // ),
-                        // const SizedBox(
-                        //   height: 10,
-                        // ),
-                        // const HadithBookCard(
-                        //   hadithBookTitle: "Sahih",
-                        //   hadithBookSubTitle: "Sahih Muslim",
-                        //   hadithBookTotalHadith: "8547",
-                        //   hadithBookABVRCode: 'B',
-                        //   hadithBookColor: Colors.blue,
-                        // ),
-                        // const SizedBox(
-                        //   height: 10,
-                        // ),
-                        // const HadithBookCard(
-                        //   hadithBookTitle: "Sahih Mus",
-                        //   hadithBookSubTitle: "Sahih Muslim",
-                        //   hadithBookTotalHadith: "7458",
-                        //   hadithBookABVRCode: 'B',
-                        //   hadithBookColor: Colors.blueGrey,
-                        // ),
-                        // const SizedBox(
-                        //   height: 10,
-                        // ),
-                        // const HadithBookCard(
-                        //   hadithBookTitle: "Sahih Mu",
-                        //   hadithBookSubTitle: "Sahih Muslim",
-                        //   hadithBookTotalHadith: "55555",
-                        //   hadithBookABVRCode: 'B',
-                        //   hadithBookColor: Colors.blueAccent,
-                        // ),
-                        // const SizedBox(
-                        //   height: 10,
-                        // ),
-                        // const HadithBookCard(
-                        //   hadithBookTitle: "Sahih M",
-                        //   hadithBookSubTitle: "Sahih Muslim",
-                        //   hadithBookTotalHadith: "444",
-                        //   hadithBookABVRCode: 'B',
-                        //   hadithBookColor: Colors.orange,
-                        // ),
-                        // const SizedBox(
-                        //   height: 10,
-                        // ),
-                        // const HadithBookCard(
-                        //   hadithBookTitle: "Sahih Muslim T",
-                        //   hadithBookSubTitle: "Sahih Muslim",
-                        //   hadithBookTotalHadith: "1111",
-                        //   hadithBookABVRCode: 'B',
-                        //   hadithBookColor: Colors.cyanAccent,
-                        // ),
                       ],
                     ),
                   ),

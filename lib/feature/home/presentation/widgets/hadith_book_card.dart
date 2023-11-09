@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hadith_bn_test/core/routes/app_pages.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
+import 'package:hadith_bn_test/core/utils/extensions.dart';
 import 'package:hadith_bn_test/feature/home/data/models/books_model.dart';
 
 class HadithBookCard extends StatelessWidget {
@@ -45,7 +46,7 @@ class HadithBookCard extends StatelessWidget {
                   AppIcons.polygon,
                   width: 46,
                   height: 46,
-                  colorFilter: ColorFilter.mode(Colors.green, BlendMode.srcIn),
+                  colorFilter: ColorFilter.mode(fromHexStringToColor(booksModel.colorCode), BlendMode.srcIn),
                 ),
                 ),
                 SizedBox(
