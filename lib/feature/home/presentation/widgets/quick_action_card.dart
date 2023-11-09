@@ -1,14 +1,16 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
+import 'package:hadith_bn_test/feature/home/presentation/controller/home_controller.dart';
 import 'package:hadith_bn_test/feature/home/presentation/widgets/quick_action_buttons.dart';
 
-class QuickActionCard extends StatelessWidget {
+class QuickActionCard extends GetWidget<HomeController> {
   const QuickActionCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Obx(() => SizedBox(
       width: Get.width,
       height: 86,
       child: Center(
@@ -19,29 +21,34 @@ class QuickActionCard extends StatelessWidget {
               color: AppColors.white,
               borderRadius: BorderRadius.circular(20)
           ),
-          child: const Row(
+          child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              QuickActionButton(
+              FadeInLeft(animate: controller.quickActionAnimateStatus.value,child: QuickActionButton(
                 buttonIcon: AppIcons.clock,
                 buttonName: "Last",
-              ),
-              QuickActionButton(
+                onPressed: (){},
+              ),),
+              FadeIn(animate: controller.quickActionAnimateStatus.value,child: QuickActionButton(
                 buttonIcon: AppIcons.goTo,
                 buttonName: "Go To",
-              ),
-              QuickActionButton(
+                onPressed: ()=> controller.quickActionAnimateStatusChange(),
+              ),),
+              FadeInUp(animate: controller.quickActionAnimateStatus.value,child:  QuickActionButton(
                 buttonIcon: AppIcons.apps,
                 buttonName: "Apps",
-              ),
-              QuickActionButton(
+                onPressed: (){},
+              ),),
+              FadeInDown(animate: controller.quickActionAnimateStatus.value,child: QuickActionButton(
                 buttonIcon: AppIcons.sadaqa,
                 buttonName: "Sadaqa",
-              ),
+                onPressed: (){},
+              ),),
+
             ],
           ),
         ),
       ),
-    );
+    ));
   }
 }
