@@ -8,7 +8,8 @@ import 'package:hadith_bn_test/feature/home/presentation/widgets/quick_action_ca
 import 'package:hadith_bn_test/feature/home/presentation/widgets/top_texts_card.dart';
 
 class HomePage extends GetWidget<HomeController> {
-  const HomePage({super.key});
+  final HomeController homeController = Get.put(HomeController());
+   HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

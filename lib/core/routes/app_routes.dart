@@ -11,6 +11,6 @@ abstract class Routes {
 abstract class _Paths {
   static const unknown404 = '/404';
   static const main = '/main';
-  static const home = '$main/home';
+  static const home = '/home';
   static const chapter = '/chapter';
 }

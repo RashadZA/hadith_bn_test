@@ -19,7 +19,7 @@ class AppPages {
       children: [
         GetPage(
           name: _Paths.home,
-          page: () => const HomePage(),
+          page: () => HomePage(),
           binding: BindingsBuilder(
                 () => Get.lazyPut<HomeController>(() => HomeController()),
           ),

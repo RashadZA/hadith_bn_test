@@ -23,12 +23,12 @@ class MainView extends GetWidget<MainController> {
               controller.selectedTabIndex.value = value;
               controller.update();
             },
-            children: const [
+            children: [
               HomePage(),
-              BookPage(),
-              NotePage(),
-              SavePage(),
-              UserPage(),
+              const BookPage(),
+              const NotePage(),
+              const SavePage(),
+              const UserPage(),
             ],
           ),
           const BottomBar(),
