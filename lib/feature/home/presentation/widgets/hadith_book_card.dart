@@ -5,18 +5,18 @@ import 'package:hadith_bn_test/core/routes/app_pages.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
 
 class HadithBookCard extends StatelessWidget {
-  final String title;
-  final String subTitle;
-  final String abvrCode;
-  final String totalHadith;
-  final Color color;
+  final String hadithBookTitle;
+  final String hadithBookSubTitle;
+  final String hadithBookABVRCode;
+  final String hadithBookTotalHadith;
+  final Color hadithBookColor;
   const HadithBookCard({
     super.key,
-    required this.title,
-    required this.subTitle,
-    required this.abvrCode,
-    required this.totalHadith,
-    required this.color,
+    required this.hadithBookTitle,
+    required this.hadithBookSubTitle,
+    required this.hadithBookABVRCode,
+    required this.hadithBookTotalHadith,
+    required this.hadithBookColor,
   });
 
   @override
@@ -24,8 +24,8 @@ class HadithBookCard extends StatelessWidget {
     return InkWell(
       onTap: (){
         Get.toNamed(Routes.chapter,parameters: {
-          "title": "",
-          "totalHadith":""
+          title: hadithBookTitle,
+          totalHadith: hadithBookTotalHadith
         });
       },
       child: Container(
@@ -52,11 +52,11 @@ class HadithBookCard extends StatelessWidget {
                     AppIcons.polygon,
                     width: 46,
                     height: 46,
-                    colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(hadithBookColor, BlendMode.srcIn),
                   ),
                   Center(
                     child: Text(
-                      abvrCode,
+                      hadithBookABVRCode,
                       style: AppTextTheme.text18.copyWith(color: AppColors.white),
                     ),
                   )
@@ -72,11 +72,11 @@ class HadithBookCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    hadithBookTitle,
                     style: AppTextTheme.text14,
                   ),
                   Text(
-                    subTitle,
+                    hadithBookSubTitle,
                     style: AppTextTheme.text12.copyWith(
                       fontFamily: AppTextTheme.getInter,
                       fontWeight: FontWeight.w400,
@@ -95,7 +95,7 @@ class HadithBookCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    totalHadith,
+                    hadithBookTotalHadith,
                     style: AppTextTheme.text14,
                   ),
                   Text(

@@ -7,6 +7,7 @@ class AppIcons {
 
   static const String apps = '$iconPath/Apps.svg';
   static const String book = '$iconPath/Book.svg';
+  static const String back = '$iconPath/Back.svg';
   static const String goTo = '$iconPath/GoTo.svg';
   static const String home = '$iconPath/Home.svg';
   static const String last = '$iconPath/Last.svg';

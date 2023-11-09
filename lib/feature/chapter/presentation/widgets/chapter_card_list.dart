@@ -30,22 +30,26 @@ class ChapterCardList extends GetWidget<ChapterController> {
     //     },
     //   ),
     // );
-    return Obx(() => Column(
-      children: [
-        const SizedBox(
-          height: defaultPadding,
-        ),
-        for (int index = 0;
-        index < controller.chapterList.length;
-        index++) ...[
-          ChapterCard(
-            chapter: controller.chapterList[index],
-          ).listAnimation(position: index),
-          const SizedBox(
-            height: defaultPadding,
-          ),
-        ]
-      ],
-    ));
+    return Obx(() => ListView.builder(
+        shrinkWrap: true,
+        physics: AlwaysScrollableScrollPhysics(),
+        itemCount: controller.chapterList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
+            children: [
+              const SizedBox(
+                height: defaultPadding,
+              ),
+              ChapterCard(
+                chapter: controller.chapterList[index],
+              ),
+              controller.chapterList.length - 1 == index
+                  ? const SizedBox(
+                height: defaultPadding,
+              )
+                  : Container(),
+            ],
+          );
+        }),);
   }
 }

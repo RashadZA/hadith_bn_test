@@ -13,7 +13,7 @@ class HomePage extends GetWidget<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      appBar:AppBar(
+      appBar: AppBar(
         leading: const Icon(Icons.menu),
         title: const Text(alHadith),
         actions: [
@@ -30,16 +30,17 @@ class HomePage extends GetWidget<HomeController> {
               width: Get.width,
               height: 300,
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    AppColors.primaryColor,
-                    AppColors.linearGradientEndColor,
-                  ],
-                ),
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20))
-              ),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      AppColors.primaryColor,
+                      AppColors.linearGradientEndColor,
+                    ],
+                  ),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20))),
               child: SvgPicture.asset(
                 AppIcons.mask,
                 fit: BoxFit.fill,
@@ -47,7 +48,8 @@ class HomePage extends GetWidget<HomeController> {
             ),
             Container(
               width: Get.width,
-              padding: const EdgeInsets.only(left: 15,right: 15,top: 30,bottom: 30),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, top: 30, bottom: 30),
               child: Column(
                 children: [
                   const TopTextsCard(),
@@ -63,31 +65,72 @@ class HomePage extends GetWidget<HomeController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("All Hadith Book",style: AppTextTheme.text15.copyWith(color: AppColors.oxy, fontWeight: FontWeight.w600),),
+                        Text(
+                          "All Hadith Book",
+                          style: AppTextTheme.text15.copyWith(
+                              color: AppColors.oxy,
+                              fontWeight: FontWeight.w600),
+                        ),
                         const SizedBox(
                           height: 12,
                         ),
-                        const HadithBookCard(title: "Sahih Muslim",subTitle: "Sahih Muslim",totalHadith: "7563", abvrCode: 'B',color: Colors.green,),
+                        const HadithBookCard(
+                          hadithBookTitle: "Sahih Mus",
+                          hadithBookSubTitle: "Sahih Muslim",
+                          hadithBookTotalHadith: "7563",
+                          hadithBookABVRCode: 'B',
+                          hadithBookColor: Colors.green,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        const HadithBookCard(title: "Sahih Muslim",subTitle: "Sahih Muslim",totalHadith: "7563", abvrCode: 'B',color: Colors.blue,),
+                        const HadithBookCard(
+                          hadithBookTitle: "Sahih",
+                          hadithBookSubTitle: "Sahih Muslim",
+                          hadithBookTotalHadith: "8547",
+                          hadithBookABVRCode: 'B',
+                          hadithBookColor: Colors.blue,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        const HadithBookCard(title: "Sahih Muslim",subTitle: "Sahih Muslim",totalHadith: "7563", abvrCode: 'B',color: Colors.blueGrey,),
+                        const HadithBookCard(
+                          hadithBookTitle: "Sahih Mus",
+                          hadithBookSubTitle: "Sahih Muslim",
+                          hadithBookTotalHadith: "7458",
+                          hadithBookABVRCode: 'B',
+                          hadithBookColor: Colors.blueGrey,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        const HadithBookCard(title: "Sahih Muslim",subTitle: "Sahih Muslim",totalHadith: "7563", abvrCode: 'B',color: Colors.blueAccent,),
+                        const HadithBookCard(
+                          hadithBookTitle: "Sahih Mu",
+                          hadithBookSubTitle: "Sahih Muslim",
+                          hadithBookTotalHadith: "55555",
+                          hadithBookABVRCode: 'B',
+                          hadithBookColor: Colors.blueAccent,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        const HadithBookCard(title: "Sahih Muslim",subTitle: "Sahih Muslim",totalHadith: "7563", abvrCode: 'B',color: Colors.orange,),
+                        const HadithBookCard(
+                          hadithBookTitle: "Sahih M",
+                          hadithBookSubTitle: "Sahih Muslim",
+                          hadithBookTotalHadith: "444",
+                          hadithBookABVRCode: 'B',
+                          hadithBookColor: Colors.orange,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        const HadithBookCard(title: "Sahih Muslim",subTitle: "Sahih Muslim",totalHadith: "7563", abvrCode: 'B',color: Colors.cyanAccent,),
+                        const HadithBookCard(
+                          hadithBookTitle: "Sahih Muslim T",
+                          hadithBookSubTitle: "Sahih Muslim",
+                          hadithBookTotalHadith: "1111",
+                          hadithBookABVRCode: 'B',
+                          hadithBookColor: Colors.cyanAccent,
+                        ),
                       ],
                     ),
                   ),

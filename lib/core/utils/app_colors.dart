@@ -8,6 +8,7 @@ class AppColors{
 
   static const Color black = Colors.black;
   static const Color blackCoral = Color(0xFF5D646F);
+  static const Color blueGray = Color(0xFF5C768D);
 
   static const Color green = Colors.green;
 
@@ -26,6 +27,8 @@ class AppColors{
   static const Color oxy = Color(0xFF101010);
 
   static const Color redAccent = Colors.redAccent;
+
+  static const Color shuttleGrey = Color(0xFF5D646F);
 
   static const Color transparent = Colors.transparent;
 

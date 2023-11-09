@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hadith_bn_test/core/components/components.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
+import 'package:hadith_bn_test/core/utils/extensions.dart';
 import 'package:hadith_bn_test/feature/chapter/presentation/controller/chapter_controller.dart';
+import 'package:hadith_bn_test/feature/chapter/presentation/widgets/chapter_card.dart';
 import 'package:hadith_bn_test/feature/chapter/presentation/widgets/chapter_card_list.dart';
 
 class ChapterPage extends GetWidget<ChapterController> {
@@ -9,52 +12,88 @@ class ChapterPage extends GetWidget<ChapterController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.grey,
-        appBar: AppBar(
-          title: const Text("Al Hadith"),
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            width: Get.width,
-            padding: const EdgeInsets.all(defaultPadding),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SearchBar(
-                  controller: controller.searchFieldEditingController,
-                  backgroundColor: MaterialStateProperty.all(AppColors.white),
-                  shape: MaterialStateProperty.all(
-                    const ContinuousRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(defaultPadding),
+    return Container(
+      color: AppColors.primaryColor,
+      child: SafeArea(
+          child: Obx(
+        () => Stack(
+          children: [
+            Scaffold(
+              backgroundColor: Colors.grey,
+              appBar: AppBar(
+                elevation: 0,
+                toolbarHeight: 90,
+                leadingWidth: 20,
+                title: RichText(
+                  textAlign: TextAlign.start,
+                  text: TextSpan(
+                      text: controller.chapterTitle.value,
+                      style: AppTextTheme.text16.copyWith(
+                          color: AppColors.white, fontWeight: FontWeight.w600),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: '\n${controller.chapterSubTitle.value}',
+                          style: AppTextTheme.text12.copyWith(
+                            color: AppColors.white,
+                          ),
+                        ),
+                      ]),
+                ),
+                leading: Padding(
+                  padding: const EdgeInsets.only(left: 12.5),
+                  child: CoreIconButton(
+                    icon: AppIcons.back,
+                    onPressed: () => Get.back(),
+                    color: AppColors.white,
+                  ),
+                ),
+                actions: const [
+                  Icon(Icons.more_vert),
+                ],
+              ),
+            ),
+            Container(),
+            Positioned(
+              top: 70,
+              child: Container(
+                width: Get.width,
+                padding: const EdgeInsets.only(
+                    left: defaultPadding,
+                    right: defaultPadding,
+                    top: defaultPadding),
+                decoration: const BoxDecoration(
+                  color: AppColors.backgroundColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CoreTextField(
+                      hintText: 'Search y chapter',
+                      textInputAction: TextInputAction.done,
+                      controller: controller.searchFieldEditingController,
+                      keyboardType: TextInputType.text,
+                      onSubmit: (_) => controller.onSubmitOfSearchFieldButton(),
+                      suffixIcon: CoreIconButton(
+                        icon: AppIcons.search,
+                        width: 22,
+                        onPressed: () => controller.onSubmitOfSearchFieldButton(),
                       ),
                     ),
-                  ),
-                  hintText: 'Search y chapter',
-                  hintStyle: MaterialStateProperty.all(
-                    AppTextTheme.text14.copyWith(
-                      color: const Color(0xFF5C768D),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  trailing: [
-                    IconButton(
-                      icon: const Icon(Icons.search),
-                      onPressed: () {
-                        print('Use voice command');
-                      },
+                    SizedBox(
+                      height: Get.height - 175,
+                      child: const ChapterCardList(),
                     ),
                   ],
-                  // other arguments
                 ),
-                const ChapterCardList(),
-              ],
-            ),
-          ),
+              ),
+            )
+          ],
         ),
-      ),
+      )),
     );
   }
 }
