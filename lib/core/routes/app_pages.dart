@@ -3,7 +3,7 @@ import 'package:hadith_bn_test/feature/chapter/presentation/controller/chapter_c
 import 'package:hadith_bn_test/feature/chapter/presentation/pages/chapter_page.dart';
 import 'package:hadith_bn_test/feature/home/presentation/controller/home_controller.dart';
 import 'package:hadith_bn_test/feature/home/presentation/pages/home_page.dart';
-import 'package:hadith_bn_test/feature/main_view/controller/main_controller.dart';
+import 'package:hadith_bn_test/feature/main_view/presentation/controller/main_controller.dart';
 import 'package:hadith_bn_test/feature/main_view/presentation/pages/main_view.dart';
 
 part 'app_routes.dart';

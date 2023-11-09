@@ -2,36 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
-import 'package:hadith_bn_test/feature/main_view/controller/main_controller.dart';
+import 'package:hadith_bn_test/feature/main_view/presentation/controller/main_controller.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BottomAppBar(
-      elevation: 0.0,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          width: Get.width,
-          height: 56,
-          color: AppColors.white,
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: const Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _BottomBarIcon(icon: AppIcons.home, index: 0),
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 15,right: 15,bottom: 10),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            width: Get.width,
+            height: 56,
+            color: AppColors.white,
+            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+            child: const Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BottomBarIcon(icon: AppIcons.home, index: 0),
 
-              _BottomBarIcon(
-                index: 1,
-                icon: AppIcons.book,
-              ),
-              _BottomBarIcon(icon: AppIcons.note, index: 2),
-              _BottomBarIcon(icon: AppIcons.save, index: 3),
-              _BottomBarIcon(icon: AppIcons.user, index: 4),
-            ],
+                BottomBarIcon(
+                  index: 1,
+                  icon: AppIcons.book,
+                ),
+                BottomBarIcon(icon: AppIcons.note, index: 2),
+                BottomBarIcon(icon: AppIcons.save, index: 3),
+                BottomBarIcon(icon: AppIcons.user, index: 4),
+              ],
+            ),
           ),
         ),
       ),
@@ -39,11 +42,11 @@ class BottomBar extends StatelessWidget {
   }
 }
 
-class _BottomBarIcon extends GetWidget<MainController> {
+class BottomBarIcon extends GetWidget<MainController> {
   final int index;
   final String icon;
 
-  const _BottomBarIcon({
+  const BottomBarIcon({super.key,
     required this.index,
     required this.icon,
   });
@@ -53,7 +56,6 @@ class _BottomBarIcon extends GetWidget<MainController> {
     return Obx(() => SizedBox(
       width: 28,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           IconButton(
             padding: EdgeInsets.zero,
@@ -64,11 +66,12 @@ class _BottomBarIcon extends GetWidget<MainController> {
             },
             icon: SvgPicture.asset(
               icon,
-              width: 20,
-              height: 20,
+              width: 24,
+              height: 24,
               colorFilter: ColorFilter.mode(controller.selectedTabIndex.value == index ? AppColors.primaryColor : AppColors.oxy , BlendMode.srcIn),
             ),
           ),
+          const Spacer(),
           controller.selectedTabIndex.value == index ? Container(
             height: 4,
             width: 28,
