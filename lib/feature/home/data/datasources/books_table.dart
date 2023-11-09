@@ -17,14 +17,12 @@ class BooksTable {
     Database db = await HadithDataBaseHelper().init();
 
     var result = await db.query(books);
-    print('Get RepoListJson result: $result');
     return result;
   }
 
   Future deleteBooksList()async{
     Database db = await HadithDataBaseHelper().init();
     var result = await db.delete(books);
-    print('Deleted RepoListJson result: $result');
   }
 
 }

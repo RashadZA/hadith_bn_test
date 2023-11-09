@@ -13,10 +13,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> init() async {
-    print("Home Controller active");
     List books = await BooksTable().getBooksList();
     update();
-    print("Books List : $books");
     for(Map<String, dynamic> book in books){
       booksList.add(BooksModel.fromJsonToModel(book));
     }

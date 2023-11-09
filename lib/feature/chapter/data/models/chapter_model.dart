@@ -14,11 +14,11 @@ class ChapterModel {
   });
 
   ChapterModel.fromJsonToMap(Map<String, dynamic> json) {
-    id = json['id'] != null ? json['id'] as String  : "";
-    chapterId = json['chapter_id'] != null ? json['chapter_id']  as String  : "";
-    title = json['title'] != null ? json['title'] as String  : "";
-    hadisRange = json['hadis_range'] != null ? json['hadis_range'] as String  : "";
-    number = json['number'] != null ? json['number'] as String  : "";
+    id = json['id'] != null ? json['id'].toString()  : "";
+    chapterId = json['chapter_id'] != null ? json['chapter_id'].toString()  : "";
+    title = json['title'] != null ? json['title'].toString()  : "";
+    hadisRange = json['hadis_range'] != null ? json['hadis_range'].toString()  : "";
+    number = json['number'] != null ? json['number'].toString()  : "";
   }
 
   Map<String, dynamic> fromMapToJson() {

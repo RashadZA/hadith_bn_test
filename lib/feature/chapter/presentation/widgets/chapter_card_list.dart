@@ -30,9 +30,9 @@ class ChapterCardList extends GetWidget<ChapterController> {
     //     },
     //   ),
     // );
-    return Obx(() => ListView.builder(
+    return Obx(() => controller.chapterList.isNotEmpty ? ListView.builder(
         shrinkWrap: true,
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         itemCount: controller.chapterList.length,
         itemBuilder: (BuildContext context, int index) {
           return Column(
@@ -50,6 +50,6 @@ class ChapterCardList extends GetWidget<ChapterController> {
                   : Container(),
             ],
           );
-        }),);
+        }) : emptyCard(width: defaultDeviceWidth, height: 68),);
   }
 }

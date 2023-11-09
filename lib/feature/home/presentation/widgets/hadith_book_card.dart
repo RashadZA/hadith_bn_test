@@ -19,7 +19,8 @@ class HadithBookCard extends StatelessWidget {
       onTap: (){
         Get.toNamed(Routes.chapter,parameters: {
           title: booksModel.title,
-          totalHadith: booksModel.numberOfHadis
+          totalHadith: booksModel.numberOfHadis,
+          bookId: booksModel.id
         });
       },
       child: Container(
