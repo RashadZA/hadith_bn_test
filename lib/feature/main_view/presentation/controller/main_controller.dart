@@ -14,6 +14,4 @@ class MainController extends GetxController {
 
   Future<void> init() async {
   }
-
-
 }

@@ -14,7 +14,7 @@ class QuickActionButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         width: 76.5,
-        padding: EdgeInsets.only(top: 10, bottom: 10),
+        padding: const EdgeInsets.only(top: 10, bottom: 10),
         child: Column(
           children: [
             SizedBox(

@@ -16,12 +16,14 @@ class HomePage extends GetWidget<HomeController> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        leading: const Icon(Icons.menu),
+        leading: Container(
+            margin: const EdgeInsets.only(left: 24),
+            child: iconFromSVG(icon: AppIcons.menu, radius: 20,color: AppColors.white,)),
         title: const Text(alHadith),
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 20),
-            child: const Icon(Icons.search),
+            child: iconFromSVG(icon: AppIcons.search, radius: 24,color: AppColors.white,),
           )
         ],
       ),

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
 
 extension WidgetExtension on Widget {
+
   /// Converting hexString to Color
   Color fromHexStringToColor(String hexString) {
     final buffer = StringBuffer();
@@ -30,47 +31,6 @@ extension WidgetExtension on Widget {
       height: radius,
     );
 
-  }
-}
-extension StringExtension on String {
-  dynamic errorSnackBar() {
-    Get
-      ..closeAllSnackbars()
-      ..snackbar(
-        'Error !',
-        this,
-        backgroundColor: AppColors.redAccent,
-        colorText: AppColors.white,
-        snackPosition: SnackPosition.TOP,
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      );
-  }
-
-  dynamic successSnackBar({void Function(GetSnackBar)? onTap}) {
-    Get
-      ..closeAllSnackbars()
-      ..snackbar(
-        'Success !',
-        this,
-        onTap: onTap,
-        backgroundColor: AppColors.green,
-        colorText: AppColors.white,
-        snackPosition: SnackPosition.TOP,
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      );
-  }
-
-  dynamic infoSnackBar() {
-    Get
-      ..closeAllSnackbars()
-      ..snackbar(
-        'Info !',
-        this,
-        colorText: AppColors.black,
-        backgroundColor: AppColors.white,
-        snackPosition: SnackPosition.TOP,
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      );
   }
 }
 

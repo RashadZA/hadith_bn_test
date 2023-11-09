@@ -16,13 +16,13 @@ class BooksTable {
   Future getBooksList() async {
     Database db = await HadithDataBaseHelper().init();
 
-    var result = await db.query(books);
+    dynamic result = await db.query(books);
     return result;
   }
 
   Future deleteBooksList()async{
     Database db = await HadithDataBaseHelper().init();
-    var result = await db.delete(books);
+     await db.delete(books);
   }
 
 }

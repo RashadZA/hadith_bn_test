@@ -22,13 +22,13 @@ class ChapterTable {
   Future getChapterListAccordingToBookID({required String bookID}) async {
     Database db = await HadithDataBaseHelper().init();
 
-    var result = await db.query(chapter,orderBy: "$chapter_id ASC", where: "$book_id = $bookID");
+    dynamic result = await db.query(chapter,orderBy: "$chapter_id ASC", where: "$book_id = $bookID");
     return result;
   }
 
   Future deleteChapterList()async{
     Database db = await HadithDataBaseHelper().init();
-    var result = await db.delete(chapter);
+     await db.delete(chapter);
   }
 
 }
