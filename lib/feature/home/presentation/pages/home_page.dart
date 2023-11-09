@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
+import 'package:hadith_bn_test/core/utils/extensions.dart';
 import 'package:hadith_bn_test/feature/home/presentation/controller/home_controller.dart';
 import 'package:hadith_bn_test/feature/home/presentation/widgets/hadith_book_card.dart';
 import 'package:hadith_bn_test/feature/home/presentation/widgets/quick_action_card.dart';
@@ -75,63 +76,82 @@ class HomePage extends GetWidget<HomeController> {
                         const SizedBox(
                           height: 12,
                         ),
-                        const HadithBookCard(
-                          hadithBookTitle: "Sahih Mus",
-                          hadithBookSubTitle: "Sahih Muslim",
-                          hadithBookTotalHadith: "7563",
-                          hadithBookABVRCode: 'B',
-                          hadithBookColor: Colors.green,
-                        ),
+                        Obx(() => controller.booksList.isNotEmpty ? ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: controller.booksList.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Column(
+                                children: [
+                                  HadithBookCard(
+                                    booksModel: controller.booksList[index],
+                                  ),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+                                ],
+                              );
+                            }) : emptyCard(width: 380,height: 68)),
                         const SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
-                        const HadithBookCard(
-                          hadithBookTitle: "Sahih",
-                          hadithBookSubTitle: "Sahih Muslim",
-                          hadithBookTotalHadith: "8547",
-                          hadithBookABVRCode: 'B',
-                          hadithBookColor: Colors.blue,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const HadithBookCard(
-                          hadithBookTitle: "Sahih Mus",
-                          hadithBookSubTitle: "Sahih Muslim",
-                          hadithBookTotalHadith: "7458",
-                          hadithBookABVRCode: 'B',
-                          hadithBookColor: Colors.blueGrey,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const HadithBookCard(
-                          hadithBookTitle: "Sahih Mu",
-                          hadithBookSubTitle: "Sahih Muslim",
-                          hadithBookTotalHadith: "55555",
-                          hadithBookABVRCode: 'B',
-                          hadithBookColor: Colors.blueAccent,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const HadithBookCard(
-                          hadithBookTitle: "Sahih M",
-                          hadithBookSubTitle: "Sahih Muslim",
-                          hadithBookTotalHadith: "444",
-                          hadithBookABVRCode: 'B',
-                          hadithBookColor: Colors.orange,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const HadithBookCard(
-                          hadithBookTitle: "Sahih Muslim T",
-                          hadithBookSubTitle: "Sahih Muslim",
-                          hadithBookTotalHadith: "1111",
-                          hadithBookABVRCode: 'B',
-                          hadithBookColor: Colors.cyanAccent,
-                        ),
+                        // const HadithBookCard(
+                        //   hadithBookTitle: "Sahih Mus",
+                        //   hadithBookSubTitle: "Sahih Muslim",
+                        //   hadithBookTotalHadith: "7563",
+                        //   hadithBookABVRCode: 'B',
+                        //   hadithBookColor: Colors.green,
+                        // ),
+                        // const SizedBox(
+                        //   height: 10,
+                        // ),
+                        // const HadithBookCard(
+                        //   hadithBookTitle: "Sahih",
+                        //   hadithBookSubTitle: "Sahih Muslim",
+                        //   hadithBookTotalHadith: "8547",
+                        //   hadithBookABVRCode: 'B',
+                        //   hadithBookColor: Colors.blue,
+                        // ),
+                        // const SizedBox(
+                        //   height: 10,
+                        // ),
+                        // const HadithBookCard(
+                        //   hadithBookTitle: "Sahih Mus",
+                        //   hadithBookSubTitle: "Sahih Muslim",
+                        //   hadithBookTotalHadith: "7458",
+                        //   hadithBookABVRCode: 'B',
+                        //   hadithBookColor: Colors.blueGrey,
+                        // ),
+                        // const SizedBox(
+                        //   height: 10,
+                        // ),
+                        // const HadithBookCard(
+                        //   hadithBookTitle: "Sahih Mu",
+                        //   hadithBookSubTitle: "Sahih Muslim",
+                        //   hadithBookTotalHadith: "55555",
+                        //   hadithBookABVRCode: 'B',
+                        //   hadithBookColor: Colors.blueAccent,
+                        // ),
+                        // const SizedBox(
+                        //   height: 10,
+                        // ),
+                        // const HadithBookCard(
+                        //   hadithBookTitle: "Sahih M",
+                        //   hadithBookSubTitle: "Sahih Muslim",
+                        //   hadithBookTotalHadith: "444",
+                        //   hadithBookABVRCode: 'B',
+                        //   hadithBookColor: Colors.orange,
+                        // ),
+                        // const SizedBox(
+                        //   height: 10,
+                        // ),
+                        // const HadithBookCard(
+                        //   hadithBookTitle: "Sahih Muslim T",
+                        //   hadithBookSubTitle: "Sahih Muslim",
+                        //   hadithBookTotalHadith: "1111",
+                        //   hadithBookABVRCode: 'B',
+                        //   hadithBookColor: Colors.cyanAccent,
+                        // ),
                       ],
                     ),
                   ),

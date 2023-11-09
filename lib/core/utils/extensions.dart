@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:hadith_bn_test/core/utils/design_utils.dart';
 
 extension WidgetExtension on Widget {
   Widget listAnimation({
@@ -20,5 +21,15 @@ extension WidgetExtension on Widget {
         ),
       ),
     );
+  }
+
+  Widget emptyCard({required double width, required double height}) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),);
   }
 }

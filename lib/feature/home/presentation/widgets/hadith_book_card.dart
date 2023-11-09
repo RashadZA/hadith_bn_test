@@ -3,20 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hadith_bn_test/core/routes/app_pages.dart';
 import 'package:hadith_bn_test/core/utils/design_utils.dart';
+import 'package:hadith_bn_test/feature/home/data/models/books_model.dart';
 
 class HadithBookCard extends StatelessWidget {
-  final String hadithBookTitle;
-  final String hadithBookSubTitle;
-  final String hadithBookABVRCode;
-  final String hadithBookTotalHadith;
-  final Color hadithBookColor;
+  final BooksModel booksModel;
   const HadithBookCard({
     super.key,
-    required this.hadithBookTitle,
-    required this.hadithBookSubTitle,
-    required this.hadithBookABVRCode,
-    required this.hadithBookTotalHadith,
-    required this.hadithBookColor,
+    required this.booksModel,
   });
 
   @override
@@ -24,8 +17,8 @@ class HadithBookCard extends StatelessWidget {
     return InkWell(
       onTap: (){
         Get.toNamed(Routes.chapter,parameters: {
-          title: hadithBookTitle,
-          totalHadith: hadithBookTotalHadith
+          title: booksModel.title,
+          totalHadith: booksModel.numberOfHadis
         });
       },
       child: Container(
@@ -43,25 +36,30 @@ class HadithBookCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SizedBox(
-              width: 46,
-              height: 46,
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    AppIcons.polygon,
-                    width: 46,
-                    height: 46,
-                    colorFilter: ColorFilter.mode(hadithBookColor, BlendMode.srcIn),
-                  ),
-                  Center(
+            Stack(
+              children: [
+                SizedBox(
+                  width: 46,
+                  height: 46,
+                  child: SvgPicture.asset(
+                  AppIcons.polygon,
+                  width: 46,
+                  height: 46,
+                  colorFilter: ColorFilter.mode(Colors.green, BlendMode.srcIn),
+                ),
+                ),
+                SizedBox(
+                  width: 46,
+                  height: 46,
+                  child: Center(
                     child: Text(
-                      hadithBookABVRCode,
+                      booksModel.abvrCode,
                       style: AppTextTheme.text18.copyWith(color: AppColors.white),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+
+              ],
             ),
             const SizedBox(
               width: 15,
@@ -72,11 +70,11 @@ class HadithBookCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    hadithBookTitle,
+                    booksModel.title,
                     style: AppTextTheme.text14,
                   ),
                   Text(
-                    hadithBookSubTitle,
+                    booksModel.title,
                     style: AppTextTheme.text12.copyWith(
                       fontFamily: AppTextTheme.getInter,
                       fontWeight: FontWeight.w400,
@@ -95,7 +93,7 @@ class HadithBookCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    hadithBookTotalHadith,
+                    booksModel.numberOfHadis,
                     style: AppTextTheme.text14,
                   ),
                   Text(
