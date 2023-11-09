@@ -1,0 +1,34 @@
+part of 'design_utils.dart';
+class AppColors{
+
+  static const Color appTextPrimaryColor = Colors.black;
+
+
+  static const Color backgroundColor = Color(0xFFF4F4F4);
+
+  static const Color black = Colors.black;
+  static const Color blackCoral = Color(0xFF5D646F);
+
+  static const Color green = Colors.green;
+
+  static const Color grey = Colors.grey;
+  static final Color greyOpacity04 = Colors.grey.withOpacity(0.4);
+  static final Color greyOpacity08 = Colors.grey.withOpacity(0.8);
+
+  static const Color linearGradientBeginColor = Color(0xFF1AA489);
+  static const Color linearGradientCenterColor = Color(0xFF0E8468);
+  static const Color linearGradientEndColor = Color(0xFF2BB997);
+
+  static const Color primaryColor = Color(0xFF119072);
+
+  static final Color primaryShadowColor = primaryColor.withOpacity(0.4);
+
+  static const Color oxy = Color(0xFF101010);
+
+  static const Color redAccent = Colors.redAccent;
+
+  static const Color transparent = Colors.transparent;
+
+  static const Color white = Colors.white;
+
+}
