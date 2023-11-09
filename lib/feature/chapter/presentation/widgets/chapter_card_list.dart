@@ -30,26 +30,51 @@ class ChapterCardList extends GetWidget<ChapterController> {
     //     },
     //   ),
     // );
-    return Obx(() => controller.chapterList.isNotEmpty ? ListView.builder(
-        shrinkWrap: true,
-        physics: const AlwaysScrollableScrollPhysics(),
-        itemCount: controller.chapterList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Column(
-            children: [
-              const SizedBox(
-                height: defaultPadding,
-              ),
-              ChapterCard(
-                chapter: controller.chapterList[index],
-              ),
-              controller.chapterList.length - 1 == index
-                  ? const SizedBox(
-                height: defaultPadding,
-              )
-                  : Container(),
-            ],
-          );
-        }) : emptyCard(width: defaultDeviceWidth, height: 68),);
+    return OrientationBuilder(
+      builder: (context, orientation){
+        return Obx(() => controller.chapterList.isNotEmpty ? ListView.builder(
+            shrinkWrap: true,
+            physics: const AlwaysScrollableScrollPhysics(),
+            itemCount: controller.chapterList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Column(
+                children: [
+                  const SizedBox(
+                    height: defaultPadding,
+                  ),
+                  ChapterCard(
+                    chapter: controller.chapterList[index],
+                  ),
+                  controller.chapterList.length - 1 == index
+                      ? const SizedBox(
+                    height: defaultPadding,
+                  )
+                      : Container(),
+                ],
+              );
+            }) : emptyCard(width: Get.width - (defaultPadding1 * 2 ), height: 68),);
+      },
+    );
+    // return Obx(() => controller.chapterList.isNotEmpty ? ListView.builder(
+    //     shrinkWrap: true,
+    //     physics: const AlwaysScrollableScrollPhysics(),
+    //     itemCount: controller.chapterList.length,
+    //     itemBuilder: (BuildContext context, int index) {
+    //       return Column(
+    //         children: [
+    //           const SizedBox(
+    //             height: defaultPadding,
+    //           ),
+    //           ChapterCard(
+    //             chapter: controller.chapterList[index],
+    //           ),
+    //           controller.chapterList.length - 1 == index
+    //               ? const SizedBox(
+    //             height: defaultPadding,
+    //           )
+    //               : Container(),
+    //         ],
+    //       );
+    //     }) : emptyCard(width: defaultDeviceWidth, height: 68),);
   }
 }

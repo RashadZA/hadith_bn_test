@@ -22,14 +22,14 @@ void goToDialog({required Function onTab}) {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               SizedBox(
-                height: height * 0.8,
+                height: height * 0.7,
                 width: width,
                 // color: AppColors.primaryColor,
                 child: Column(
                   children: [
                     SvgPicture.asset(
                       AppIcons.goTo,
-                      width: width * 0.6,
+                      width: width * 0.5,
                       height: height * 0.4,
                     ),
                     Text(
@@ -49,7 +49,7 @@ void goToDialog({required Function onTab}) {
                   onPressed: () => onTab(),
                   child: SizedBox(
                     width: width * 0.4,
-                    height: height * 0.1,
+                    height: height * 0.2,
                     child: Center(
                       child: Text(
                       "Close",

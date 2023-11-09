@@ -9,36 +9,101 @@ class BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 15,right: 15,bottom: 10),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            width: Get.width,
-            height: 56,
-            color: AppColors.white,
-            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-            child: const Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BottomBarIcon(icon: AppIcons.home, index: 0),
+    // return Align(
+    //   alignment: Alignment.bottomCenter,
+    //   child: Padding(
+    //     padding: const EdgeInsets.only(left: 15,right: 15,bottom: 10),
+    //     child: ClipRRect(
+    //       borderRadius: BorderRadius.circular(10),
+    //       child: Container(
+    //         width: Get.width,
+    //         height: 56,
+    //         color: AppColors.white,
+    //         padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+    //         child: const Row(
+    //           mainAxisSize: MainAxisSize.max,
+    //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //           children: [
+    //             BottomBarIcon(icon: AppIcons.home, index: 0),
+    //
+    //             BottomBarIcon(
+    //               index: 1,
+    //               icon: AppIcons.book,
+    //             ),
+    //             BottomBarIcon(icon: AppIcons.note, index: 2),
+    //             BottomBarIcon(icon: AppIcons.save, index: 3),
+    //             BottomBarIcon(icon: AppIcons.user, index: 4),
+    //           ],
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
+    return OrientationBuilder(
+      builder: (context, orientation){
+        return Align(
+          alignment: Alignment.bottomCenter,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15,right: 15,bottom: 10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                width: Get.width,
+                height: 56,
+                color: AppColors.white,
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    BottomBarIcon(icon: AppIcons.home, index: 0),
 
-                BottomBarIcon(
-                  index: 1,
-                  icon: AppIcons.book,
+                    BottomBarIcon(
+                      index: 1,
+                      icon: AppIcons.book,
+                    ),
+                    BottomBarIcon(icon: AppIcons.note, index: 2),
+                    BottomBarIcon(icon: AppIcons.save, index: 3),
+                    BottomBarIcon(icon: AppIcons.user, index: 4),
+                  ],
                 ),
-                BottomBarIcon(icon: AppIcons.note, index: 2),
-                BottomBarIcon(icon: AppIcons.save, index: 3),
-                BottomBarIcon(icon: AppIcons.user, index: 4),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
+
+    // return Align(
+    //   alignment: Alignment.bottomCenter,
+    //   child: Padding(
+    //     padding: const EdgeInsets.only(left: 15,right: 15,bottom: 10),
+    //     child: ClipRRect(
+    //       borderRadius: BorderRadius.circular(10),
+    //       child: Container(
+    //         width: Get.width,
+    //         height: 56,
+    //         color: AppColors.white,
+    //         padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+    //         child: const Row(
+    //           mainAxisSize: MainAxisSize.max,
+    //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //           children: [
+    //             BottomBarIcon(icon: AppIcons.home, index: 0),
+    //
+    //             BottomBarIcon(
+    //               index: 1,
+    //               icon: AppIcons.book,
+    //             ),
+    //             BottomBarIcon(icon: AppIcons.note, index: 2),
+    //             BottomBarIcon(icon: AppIcons.save, index: 3),
+    //             BottomBarIcon(icon: AppIcons.user, index: 4),
+    //           ],
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 }
 

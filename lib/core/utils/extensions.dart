@@ -73,3 +73,7 @@ extension StringExtension on String {
       );
   }
 }
+
+ getHeightAccordingToDevice({required double forLargeHeight, required double forLowerHeight}){
+  return Get.height > 412 ? forLargeHeight : forLowerHeight;
+}

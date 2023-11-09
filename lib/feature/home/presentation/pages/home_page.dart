@@ -26,82 +26,91 @@ class HomePage extends GetWidget<HomeController> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              width: Get.width,
-              height: 300,
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      AppColors.primaryColor,
-                      AppColors.linearGradientEndColor,
-                    ],
-                  ),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20))),
-              child: SvgPicture.asset(
-                AppIcons.mask,
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              width: Get.width,
-              padding: const EdgeInsets.only(
-                  left: 15, right: 15, top: 30, bottom: 30),
-              child: Column(
-                children: [
-                  const TopTextsCard(),
-                  const SizedBox(
-                    height: 100,
-                  ),
-                  const QuickActionCard(),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  SizedBox(
-                    width: Get.width,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "All Hadith Book",
-                          style: AppTextTheme.text15.copyWith(
-                              color: AppColors.oxy,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        Obx(() => controller.booksList.isNotEmpty ? ListView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: controller.booksList.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Column(
-                                children: [
-                                  HadithBookCard(
-                                    booksModel: controller.booksList[index],
-                                  ),
-                                  const SizedBox(
-                                    height: 12,
-                                  ),
-                                ],
-                              );
-                            }) : emptyCard(width: 380,height: 68)),
-                        const SizedBox(
-                          height: 30,
-                        ),
+        child: OrientationBuilder(
+          builder: (context, orientation){
+            return Stack(
+              children: [
+                Container(
+                  width: Get.width,
+                  height: getHeightAccordingToDevice(forLargeHeight: 300,forLowerHeight: 200),
+                  decoration:  BoxDecoration(
+                    gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        AppColors.primaryColor,
+                        AppColors.linearGradientEndColor,
                       ],
                     ),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(getHeightAccordingToDevice(forLargeHeight: 20,forLowerHeight: 35),),
+                      bottomRight: Radius.circular(getHeightAccordingToDevice(forLargeHeight: 20,forLowerHeight: 35),),),),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(getHeightAccordingToDevice(forLargeHeight: 20,forLowerHeight: 35),),
+                      bottomRight: Radius.circular(getHeightAccordingToDevice(forLargeHeight: 20,forLowerHeight: 35),),),
+                    child: SvgPicture.asset(
+                      AppIcons.mask,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ],
-              ),
-            )
-          ],
+                ),
+                Container(
+                  width: Get.width,
+                  padding: const EdgeInsets.only(
+                      left: 15, right: 15, top: 30, bottom: 30),
+                  child: Column(
+                    children: [
+                      TopTextsCard(),
+                      SizedBox(
+                        height: getHeightAccordingToDevice(forLargeHeight: 100,forLowerHeight: 20),
+                      ),
+                      const QuickActionCard(),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      SizedBox(
+                        width: Get.width,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "All Hadith Book",
+                              style: AppTextTheme.text15.copyWith(
+                                  color: AppColors.oxy,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            const SizedBox(
+                              height: 12,
+                            ),
+                            Obx(() => controller.booksList.isNotEmpty ? ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: controller.booksList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Column(
+                                    children: [
+                                      HadithBookCard(
+                                        booksModel: controller.booksList[index],
+                                      ),
+                                      const SizedBox(
+                                        height: 12,
+                                      ),
+                                    ],
+                                  );
+                                }) : emptyCard(width: 380,height: 68)),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            );
+          },
         ),
       ),
     );
