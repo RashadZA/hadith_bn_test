@@ -15,9 +15,8 @@
 
 # Contents:
 
-* SQfLite
-* StaggeredGridView
-* and many more...
+Need to add hadith_bn_test.db file as "hadith_bn_test.db" after download from this [link](https://drive.google.com/file/d/1vb0OzCpRzd2PCz-aYOml3-khaOWGs1vO/view?usp=sharing)
+ then project will run in properly.
 
 # The Project:
 
