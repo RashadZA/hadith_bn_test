@@ -28,4 +28,13 @@ You can run this project:
 # Screen Record
 https://github.com/RashadZA/hadith_bn_test/assets/97411218/61f8d1d3-56ee-4697-856c-3c0fe87399b8
 
+# Inside Structure of Lib Directory Screenshots
+![Screenshot 2023-11-10 151417](https://github.com/RashadZA/hadith_bn_test/assets/97411218/9bf132c0-03fc-474e-9a48-5db9f0d2a767)
+
+# APP Screenshots:
+![Screenshot 2023-11-10 151852](https://github.com/RashadZA/hadith_bn_test/assets/97411218/db07620d-a250-4cc7-82c4-79db570ee905)
+![Screenshot 2023-11-10 152037](https://github.com/RashadZA/hadith_bn_test/assets/97411218/518ecea8-b397-4dbd-9cb1-64b37c301399)
+
+
+
 
