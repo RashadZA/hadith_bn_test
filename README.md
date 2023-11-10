@@ -1,16 +1,32 @@
-# hadith_bn_test
+# Hadith Bn Test
 
-A new Flutter project.
+# SDK
+* Flutter SDK: 3.13.5
+* Dart SDK: 3.1.2
 
-## Getting Started
+# Dependencies:
+* get
+* flutter_svg
+* sqflite
+* path_provider
+* animate_do
+* carousel_slider
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+# Contents:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* SQfLite
+* StaggeredGridView
+* and many more...
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# The Project:
+
+You can run this project:
+
+1. Direct on Android Studio Emulator by this [link](https://github.com/RashadZA/hadith_bn_test.git)
+2. Physical Device. [Apk_link](https://drive.google.com/file/d/1BEqFp63N6ZcvtI6soiwSR_lE7sJ2E1RY/view?usp=sharing)
+
+# Screen Record
+https://github.com/RashadZA/hadith_bn_test/assets/97411218/61f8d1d3-56ee-4697-856c-3c0fe87399b8
+
+
